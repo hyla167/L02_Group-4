@@ -1,6 +1,6 @@
 # Software Engineering Project - HK222
 
-We build a system called UWC2.0 to provide solutions to Urban Waste Collection problems. More description can be found in our report.
+We build a system called UWC2.0 to provide solutions to Urban Waste Collection problems. More description can be found in our report
 
 # Contributor
 We are a group of students from **L02_Group 4** majoring in Computer Science at Ho Chi Minh University of Technology (HCMUT).
