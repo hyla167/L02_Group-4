@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=B612:wght@400;700&family=Kaushan+Script&family=Lato:wght@400;900&family=Open+Sans:wght@500;700&family=Poppins:wght@100;300;400;500;700&family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+     <!-- New task creation -->
+     <div class="create-task-interface">
+        <div class="create-task-dialog">
+            <h2>Tạo nhiệm vụ mới</h2>
+            <i id="close-dialog" class="fa-solid fa-xmark"></i>
+            <div class="create-date">
+                <input id="date-create" type="date" placeholder="Ngày">
+            </div>
+
+            <select name="shift" id="shift">
+                <option value="Morning">Sáng</option>
+                <option value="Afternoon">Chiều</option>
+                <option value="Evening">Tối</option>
+            </select>
+
+            <select id="collector" name="collector">
+                <option value="">Nguyễn Văn A</option>
+                <option value="">Nguyễn Văn B</option>
+                <option value="">Nguyễn Văn C</option>
+                <option value="">Nguyễn Văn D</option>
+                <option value="">Nguyễn Thị E</option>
+            </select>
+
+            <select id="vehicle" name="vehicle">
+                <option value="">64A-12345</option>
+                <option value="">64A-12345</option>
+                <option value="">64A-12345</option>
+                <option value="">64A-12345</option>
+                <option value="">64A-12345</option>
+            </select>
+
+            <div class="routine-code">
+                <label for="">Mã lộ trình</label>
+                <input type="text" placeholder="R123">
+            </div>
+    
+            <div class="mcp-of-routine">
+                <label for="">MCPs</label>
+                <input type="text" placeholder="MCP1-MCP3-MCP5">
+            </div>
+            <button id="btn-continue">Tiếp theo</button>
+        </div>
+
+        <div class="create-mcp">
+            <h2>Tạo nhiệm vụ mới</h2>
+            <div class="mcp one">
+                <label for="#">MCP1 <span> Địa chỉ: 25 Trần Hưng Đạo, P. Nguyễn Cư Trinh, Quận 1</span></label>
+                <br>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+            </div>
+            <div class="mcp two">
+                <label for="#">MCP2 <span>Địa chỉ: 53 Lý Chính Thắng, Phường 8, Quận 3</span></label>
+                <br>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+            </div>
+            <div class="mcp three">
+                <label for="#">MCP3 <span>Địa chỉ: 123 Hồng Lạc, Phường 10, Quận Tân Bình</span></label>
+                <br>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+                <select name="staff" id="staff">
+                    <option value="#">Nguyen Van A</option>
+                    <option value="#">Tran Van B</option>
+                    <option value="#">Nguyen Thi C</option>
+                </select>
+            </div>
+
+            <button id="back">Quay lại</button>
+            <button id="save-task">Lưu nhiệm vụ</button>
+        </div>
+    </div>
+    <!-- Header -->
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="img/logo.png" alt="logo UWC">
+            </div>
+
+            <ul>
+                <li>Nhiệm vụ</li>
+                <li>Nhân viên</li>
+                <li>Phương tiện</li>
+                <li>Tuyến đường</li>
+                <li>MCP</li>
+            </ul>
+
+            <div class="personal-info">
+                <i class="fa-regular fa-bell"></i>
+                <i class="fa-regular fa-comment"></i>
+                <img src="img/avatar.png" alt="avatar">
+            </div>
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+   
+    <!-- Main -->
+    <main>
+        <div class="home-page">
+            <!-- <img src="img/home.jpg" alt="home"> -->
+            <h1>Danh sách nhiệm vụ</h1>
+            <div class="filter-part">
+                <div class="search-input">
+                    <input id="search" type="text" placeholder="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input id="task-id" type="text" placeholder="ID nhiệm vụ">
+                <input id="status" type="text" placeholder="Trạng thái">
+                <input id="date" type="date" placeholder="Chọn ngày">
+                <button id="btn-filter">Lọc</button>
+            </div>
+            <table id="first-table">
+                <thead>
+                    <th>ID<span></span></th>
+                    <th>Tên<span></span></th>
+                    <th>Trạng thái<span></span></th>
+                    <th>Ngày<span></span></th>
+                    <th>Ca<span></span></th>
+                    <th>Tùy chọn</th>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/5/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0003</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đã xong</th>
+                        <th>3/2/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0004</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đã xong</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0005</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/5/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/5/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/5/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0003</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đã xong</th>
+                        <th>3/2/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0004</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0003</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/5/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0001</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0003</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đã xong</th>
+                        <th>3/2/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0002</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Chưa bắt đầu</th>
+                        <th>3/7/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>0004</th>
+                        <th>Nguyễn Văn A</th>
+                        <th>Đang diễn ra</th>
+                        <th>3/4/2023</th>
+                        <th>Sáng</th>
+                        <th>
+                            <i class="fa-solid fa-pen"></i>
+                            <!-- <i class="fa-solid fa-xmark"></i> -->
+                            <i class="fa-solid fa-trash"></i>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button id="creat-task">Tạo mới</button>
+
+            <div class="flip-flop-filtering">
+                <p><span id="order-number-filter">1</span>-<span id="number-of-rows-filter">10</span> of <span id="number-of-pages-filter">50</span></p>
+                <button id="previous-table-filter"><i class="fa-solid fa-angle-left"></i></button>
+                <button  id="next-table-filter"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+
+            <div class="flip-flop-part">
+                <p><span id="order-number">1</span>-<span id="number-of-rows">10</span> of <span id="number-of-pages">50</span></p>
+                <button id="previous-table"><i class="fa-solid fa-angle-left"></i></button>
+                <button  id="next-table"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+
+        <div class="successful-save">
+            <p> <span><i class="fa-regular fa-circle-check"></i></span> Lưu thành công</p>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="line">
+            <span class="line"></span>
+        </div>
+        
+        <div class="footer">
+            <div class="social-icon">
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+
+            <div class="copyright">
+                <p>Copyright <span><i class="fa-regular fa-copyright"></i></span> 2023 UWC 2.0</p>
+            </div>
+
+            <div class="contact">
+                <p><span><i class="fa-solid fa-phone"></i></span> 0123456789</p>
+                <p><span><i class="fa-solid fa-envelope"></i></span>    uwc2_0@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script  src="table.js"></script>
+    <script  src="script.js"></script>
+    <script src="new_task.js"></script>
+    <script src="https://kit.fontawesome.com/6cade567e0.js" crossorigin="anonymous"></script>
+</body>
+</html>
