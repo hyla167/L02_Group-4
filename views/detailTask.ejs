@@ -1,0 +1,178 @@
+<%- include('header') -%>
+ 
+    <main>
+        <!-- <h2>Chi tiet nhiem vu</h2> -->
+        <div class="detail-task-interface">
+            <div class="info-task-staff">
+                <div class="col-1">
+                    <p>ID nhiệm vụ : <%= tasks.taskId %></p>
+                    <p>Tài xế : <%= tasks.nameTake %></p>
+                    <p>ID nhân viên : C001</p>
+                </div>
+                <div class="col-2">
+                    <p><i class="fa-regular fa-calendar-days"></i> Ngày: <%= tasks.dateStart %></p>
+                    <p>Mã phương tiện: <%= tasks.vehicle %></p>
+                    <p>Mã lộ trình: <%= tasks.routeCode %></p>
+                </div>
+                <div class="col-3">
+                    <p><i class="fa-regular fa-clock"></i> Ca: <%= tasks.shift %></p>
+                    <p>Số lượng MCP: 3</p>
+                    <p>Trạng thái: <%= tasks.status %></p>
+                </div>
+            </div>
+            <div class="line">
+                <span class="line"></span>
+            </div>
+
+            <div class="detail-route">
+                <div class="map-route">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.1230516877163!2d106.80410191488586!3d10.87824439225249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d8a5f4e477e9%3A0x29d5aeb365cee20b!2zS8O9IHTDumMgeMOhIEtodSBBIMSQSCBRdeG7kWMgZ2lhIFRQLiBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1678412163168!5m2!1svi!2s" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p>Tổng độ dài lộ trình : 14km</p>
+                </div>
+
+                <div class="text-route">
+                    <h3>Lộ trình tối ưu:</h3>
+                    <p id="depot">Depot: </p>
+
+                    <p id="mcp-info" data-id="<%= tasks.mcps.split('-')[0] %>">MCP<%= tasks.mcps.split('-')[0]  %>:</p>
+                    <p id="mcp-info" data-id="<%= tasks.mcps.split('-')[1]  %>">MCP<%= tasks.mcps.split('-')[1]  %>:</p>
+                    <p id="mcp-info" data-id="<%= tasks.mcps.split('-')[2]  %>">MCP<%= tasks.mcps.split('-')[2]  %>:</p>
+
+                    <p id="disposal-facility">Disposal Facility: </p>
+
+                    <div class="staff-assignment">
+                        <h3>Phân công Janitor:</h3>
+                        <br>
+                        <table>
+                            <thead style="color: rgb(108, 179, 87);">
+                                <th>MCP</th>
+                                <th>Nhân viên 1</th>
+                                <th>Nhân viên 2</th>
+                                <th>Nhân viên 3</th>
+                                <th>Trạng thái </th>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th>MCP<%= tasks.mcps.split('-')[0] %></th>
+                                    <th>Trần Thị A - J140</th>
+                                    <th>Trần Thị C - J142</th>
+                                    <th>Đỗ Văn C - J146</th>
+                                    <th style="color: red;">Chưa diễn ra</th>
+                                </tr>
+                                <tr>
+                                    <th>MCP<%= tasks.mcps.split('-')[1] %></th>
+                                    <th>Trần Thị A - J140</th>
+                                    <th>Trần Thị C - J142</th>
+                                    <th></th>
+                                    <th style="color: red;">Chưa diễn ra</th>
+                                </tr>
+                                <tr>
+                                    <th>MCP<%= tasks.mcps.split('-')[2] %></th>
+                                    <th></th>
+                                    <th>Trần Thị C - J142</th>
+                                    <th></th>
+                                    <th style="color: red;">Chưa diễn ra</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <button id="btn-back-route"><a href="/task">Quay lại</a></button>
+            <button id="btn-sending-route">Gửi thông báo</button>
+            <button id="btn-confirm-route">Xác nhận</button>
+        </div>
+        <div class="successful-save">
+            <span><i class="fa-regular fa-circle-check"></i></span>
+            <p></p>
+        </div>
+        <div class="successful-save1">
+            <span><i class="fa-regular fa-circle-check"></i></span>
+            <p></p>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="line">
+            <span class="line"></span>
+        </div>
+        
+        <div class="footer">
+            <div class="social-icon">
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+
+            <div class="copyright">
+                <p>Copyright <span><i class="fa-regular fa-copyright"></i></span> 2023 UWC 2.0</p>
+            </div>
+
+            <div class="contact">
+                <p><span><i class="fa-solid fa-phone"></i></span> 0123456789</p>
+                <p><span><i class="fa-solid fa-envelope"></i></span>    uwc2_0@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const MCP = [
+            "167 Phạm Hữu Lầu Phường Mỹ Phước Quận 7 TP. HCM",
+            "69 Nguyễn Khắc Nhu Phường Cô Giang Quận 1 Tp. HCM",
+            "15C Nguyễn Thị Minh Khai Phường Bế Quận 1 Tp.HCM",
+            "271 Phạm Ngũ Lão Phường Phạm Ngũ Lão Quận 1 Tp.HCM",
+            "200 Lê Quang Sung, Phường 6, Quận 6 Tp.HCM",
+            "188 Nguyễn Thị Minh Khai Phường 6 Quận 3 Tp.HCM",
+            "62 Phạm Ngọc Thạch Phường 6 Quận 3 Tp.HCM",
+            "1103 Trương Định Phường 6 Quận 3 Tp.HCM",
+            "97 Kinh Dương Vương, phường 12, Quận 6, TP.HCM",
+            "205 số 17, Tân Quy, Quận 7 TP.HCM"
+        ];
+        
+        const MCPidEle = document.querySelectorAll('#mcp-info');
+        let sumMCPid = 1;
+        MCPidEle.forEach(e => {
+            let MCPid = e.getAttribute('data-id');
+            sumMCPid *= MCPid;
+            e.innerHTML += " " + MCP[MCPid];
+        })
+
+        // Depot and disposal facility
+        const Depot = [
+            "205 số 17, Tân Quy, Quận 7 TP.HCM", 
+            "273 Trần Bình Trọng Phường 4 Quận 5 TP.HCM",               
+            "37C Thuận Kiều Phường 12 Quận 5 TP.HCM",
+            "81 Trần Bình Trọng Phường 1 Quận 5 TP.HCM", 
+            "7 đường Tân Mỹ, Tân Thuận Tây, Quận 7 TP.HCM", 
+            "86 Dã Tượng, Phường 10, Quận 8 TP.HCM", 
+            "178 Âu Dương Lân, Phường 3, Quận 8 TP.HCM", 
+            "129F/95I Bến Vân Đồn Quận 4 TP.HCM", 
+            "13 Tôn Đản Quận 4 TP.HCM", 
+            "22 Nguyễn Trường Tộ Quận 4 TP.HCM", 
+            "54 Phạm Nhữ Tăng, Phường 4, Quận 8 TP.HCM"
+        ];
+        const depotEle = document.getElementById('depot');
+        let index = sumMCPid % (Depot.length);
+        depotEle.innerHTML += Depot[index];
+
+        const disposalFacilityEle = document.getElementById('disposal-facility');
+        let index2 = (sumMCPid + 1) % (Depot.length);
+        disposalFacilityEle.innerHTML += Depot[index2];
+
+
+
+    </script>
+    <script src="/utils/detailTask.js"></script>
+    <script src="https://kit.fontawesome.com/6cade567e0.js" crossorigin="anonymous"></script>
+</body>
+</html>

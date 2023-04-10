@@ -1,0 +1,319 @@
+<!-- New task creation -->
+
+<div class="dialog-interface create-task-interface">
+    <div class="create-task-dialog">
+        <h2></h2>
+        <i id="close-dialog" class="fa-solid fa-xmark"></i>
+        <form method="POST" action="/task/new-task" id="new-task-form">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID nhiệm vụ
+            <div class="task-id">
+                <input name="taskId" id="taskId" type="text" placeholder="ID nhiệm vụ">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Ca
+            <div class="create-date">
+                &nbsp;Ngày&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phương tiện<br>
+                <input name="dateStart" id="dateStart" type="date" placeholder="Ngày">
+            </div>
+          
+            <select name="shift" id="shift">
+                <option name="shift" value="Sáng">Sáng</option>
+                <option name="shift" value="Chiều">Chiều</option>
+                <option name="shift" value="Tối">Tối</option>
+            </select>
+            
+            <select id="collector" name="nameTake" onclick="displayOption()" >
+                <option value="Nguyễn Văn A" style="display: none;">Nguyễn Văn A</option>
+                <option value="Nguyễn Văn B" style="display: none;">Nguyễn Văn B</option>
+                <option value="Nguyễn Văn C" style="display: none;">Nguyễn Văn C</option>
+                <option value="Nguyễn Văn D" style="display: none;">Nguyễn Văn D</option>
+                <option value="Nguyễn Thị E" style="display: none;">Nguyễn Thị E</option>
+            </select>
+            <div id="collector-option" style="display: none;">
+                <div id="collector-option-1" onclick="closeCollector1()">
+                    Nguyễn Văn A
+                    <p style="font-size: 10px">ID nhân viên: C001</p>
+                    <p style="font-size: 10px">Bằng lái: C1</p>
+                </div>
+                <div id="collector-option-2" onclick="closeCollector2()">
+                    Nguyễn Văn B
+                    <p style="font-size: 10px">ID nhân viên: C003</p>
+                    <p style="font-size: 10px">Bằng lái: D1</p>
+                </div>
+                <div id="collector-option-3" onclick="closeCollector3()">
+                    Nguyễn Văn C
+                    <p style="font-size: 10px">ID nhân viên: C003</p>
+                    <p style="font-size: 10px">Bằng lái: E1</p>
+                </div>
+                <div id="collector-option-4" onclick="closeCollector4()">
+                    Nguyễn Văn D
+                    <p style="font-size: 10px">ID nhân viên: C001</p>
+                    <p style="font-size: 10px">Bằng lái: C1</p>
+                </div>
+                <div id="collector-option-5" onclick="closeCollector5()">
+                    Nguyễn Thị E
+                    <p style="font-size: 10px">ID nhân viên: C001</p>
+                    <p style="font-size: 10px">Bằng lái: D1</p>
+                </div>
+            </div>
+            <select id="vehicle" name="vehicle">
+                <option name="vehicle" value="64A-12345">64A-12345</option>
+                <option name="vehicle" value="64A-12346">64A-12346</option>
+                <option name="vehicle" value="64A-12347">64A-12347</option>
+                <option name="vehicle" value="64A-12348">64A-12348</option>
+                <option name="vehicle" value="64A-12349">64A-12349</option>
+            </select>
+            
+            <div class="routine-code">
+                <label for="">Mã lộ trình</label>
+                <input name="routeCode" type="text" placeholder="R123">
+            </div>
+            <div class="create-collector">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tài xế</div>
+            <div class="mcp-of-routine">
+                <label for="">MCPs</label>
+                <input name="mcps" type="text" placeholder="MCP1-MCP3-MCP5">
+            </div>
+            <button type="button" id="btn-continue" onclick="next()">Tiếp theo</button>
+            <!-- <button type="submit" id="btn-continue">Tiếp theo</button> -->
+        </form>
+    </div>
+
+    <div class="create-mcp">
+        <h2>Tạo nhiệm vụ mới</h2>
+        <div class="mcp one">
+            <label for="#">MCP1 <span> Địa chỉ: 25 Trần Hưng Đạo, P. Nguyễn Cư Trinh, Quận 1</span></label>
+            <br>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+        </div>
+        <div class="mcp two">
+            <label for="#">MCP2 <span>Địa chỉ: 53 Lý Chính Thắng, Phường 8, Quận 3</span></label>
+            <br>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+        </div>
+        <div class="mcp three">
+            <label for="#">MCP3 <span>Địa chỉ: 123 Hồng Lạc, Phường 10, Quận Tân Bình</span></label>
+            <br>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyễn Văn A</option>
+                <option value="#">Trần Văn B</option>
+                <option value="#">Nguyễn Thị C</option>
+                <option value="#">Trần Thị A</option>
+                <option value="#">Trần Thị C</option>
+                <option value="#">Đỗ Văn C</option>
+                <option value="#">Không</option>
+            </select>
+        </div>
+
+        <button id="back" onclick="prev()">Quay lại</button>
+        <button id="save-task" onclick="submit()">Lưu nhiệm vụ</button>
+    </div>
+</div>
+
+<!-- Edit Task -->
+
+<div class="dialog-interface edit-task-interface">
+    <div class="edit-task-dialog">
+        <h2></h2>
+        <i id="close-dialog" class="fa-solid fa-xmark"></i>
+        <form name="virtual-edit-form" method="POST" >
+            <div class="edit-taskid">ID nhiệm vụ</div>
+            <div class="edit-shift">Ca</div>
+            <div class="edit-date-text">Ngày</div>
+            <div class="edit-vehicle-text">Phương tiện</div>
+            <div class="edit-collector-text">Tài xế</div>
+            <div class="task-id">
+                <input name="taskId" id="taskId" type="text" placeholder="ID nhiệm vụ">
+            </div>
+            <div class="edit-date">
+                <input id="date-start-input" value="<%= tasks.dateStart %>" name="dateStart" id="dateStart" type="date" placeholder="Ngày">
+            </div>
+            <select  name="shift" id="shift">
+                <option name="shift" value="Sáng">Sáng</option>
+                <option name="shift" value="Chiều">Chiều</option>
+                <option name="shift" value="Tối">Tối</option>
+            </select>
+    
+            <select id="collector" name="nameTake">
+                <option value="Nguyễn Văn A">Nguyễn Văn A</option>
+                <option value="Nguyễn Văn B">Nguyễn Văn B</option>
+                <option value="Nguyễn Văn C">Nguyễn Văn C</option>
+                <option value="Nguyễn Văn D">Nguyễn Văn D</option>
+                <option value="Nguyễn Thị E">Nguyễn Thị E</option>
+            </select>
+    
+            <select id="vehicle" name="vehicle">
+                <option name="vehicle" value="64A-12345">64A-12345</option>
+                <option name="vehicle" value="64A-12346">64A-12346</option>
+                <option name="vehicle" value="64A-12347">64A-12347</option>
+                <option name="vehicle" value="64A-12348">64A-12348</option>
+                <option name="vehicle" value="64A-12349">64A-12349</option>
+            </select>
+    
+            <div class="routine-code">
+                <label for="">Mã lộ trình</label>
+                <input id="routine-code-input"  value="<%= tasks.routeCode %>" name="routeCode" type="text" placeholder="R123">
+            </div>
+    
+            <div class="mcp-of-routine">
+                <label for="">MCPs</label>
+                <input id="mcp-of-routine-input"  value="<%= tasks.MCPs %>" name="MCPs" type="text" placeholder="MCP1-MCP3-MCP5">
+            </div>
+            <button type="submit" id="btn-continue-edit">Lưu</button>
+        </form>
+    </div>
+
+    <!-- <div class="create-mcp">
+        <h2>Tạo nhiệm vụ mới</h2>
+        <div class="mcp one">
+            <label for="#">MCP1 <span> Địa chỉ: 25 Trần Hưng Đạo, P. Nguyễn Cư Trinh, Quận 1</span></label>
+            <br>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+        </div>
+        <div class="mcp two">
+            <label for="#">MCP2 <span>Địa chỉ: 53 Lý Chính Thắng, Phường 8, Quận 3</span></label>
+            <br>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+        </div>
+        <div class="mcp three">
+            <label for="#">MCP3 <span>Địa chỉ: 123 Hồng Lạc, Phường 10, Quận Tân Bình</span></label>
+            <br>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+            <select name="staff" id="staff">
+                <option value="#">Nguyen Van A</option>
+                <option value="#">Tran Van B</option>
+                <option value="#">Nguyen Thi C</option>
+            </select>
+        </div>
+
+        <button id="back">Quay lại</button>
+        <button id="save-task">Lưu nhiệm vụ</button>
+    </div> -->
+</div>
+
+
+<!-- Delete Task UI -->
+
+<div class="dialog-interface delete-task-interface">
+    <div class="delete-task-dialog">
+        <div class="content-of-dialog">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <h2>Xóa nhiệm vụ này</h2>
+            <p>Bạn sẽ không thể khôi phục nhiệm vụ này</p>
+            
+            <button id="confirm-delete" >Xác nhận</button>
+            <button id="cancel-delete">Hủy bỏ</button>
+        </div>
+    </div>
+</div>
+
+<form name="virtual-delete-form" method="POST"></form>
