@@ -1,5 +1,4 @@
 /* Create new task dialog----------------------- */
-
 .dialog-interface{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -87,11 +86,35 @@
     border: 1px solid rgb(178, 178, 178);
     z-index: 1;
 }
+
+.edit-task-dialog #collector-opt {
+    position: absolute;
+    top: 41%;
+    left: 10%;
+    width: 210px;
+    height: 37px;
+    padding-left: 10px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(178, 178, 178);
+    z-index: 1;
+}
 .create-task-dialog .create-collector {
     position: absolute;
     top: 46.5%;
 }
 .create-task-dialog #vehicle {
+    position: absolute;
+    top: 28%;
+    left: 65%;
+    width: 120px;
+    height: 38px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(178, 178, 178);
+}
+.edit-task-dialog #vehicle-opt {
     position: absolute;
     top: 28%;
     left: 65%;
@@ -127,6 +150,12 @@
     border: 1px solid rgb(178, 178, 178);
 }
 
+.collector-img, .vehicle-img {
+    /* margin-top: 3px;
+    margin-bottom: 3px; */
+    margin-right: 10px;
+}
+
 .create-task-dialog #btn-continue{
     position: absolute;
     top: 85%;
@@ -143,6 +172,7 @@
     background-color: rgb(68, 255, 68);
 }
 .create-task-dialog #collector-option-1 {
+    display: flex;
     position: absolute;
     left: 0px;
     width: 95%;
@@ -165,7 +195,23 @@
 .create-task-dialog #collector-option-5:hover {
     background: rgb(0, 140, 255);
 }
+.create-task-dialog #vehicle-option-1:hover {
+    background: rgb(0, 140, 255);
+}
+.create-task-dialog #vehicle-option-2:hover {
+    background: rgb(0, 140, 255);
+}
+.create-task-dialog #vehicle-option-3:hover {
+    background: rgb(0, 140, 255);
+}
+.create-task-dialog #vehicle-option-4:hover {
+    background: rgb(0, 140, 255);
+}
+.create-task-dialog #vehicle-option-5:hover {
+    background: rgb(0, 140, 255);
+}
 .create-task-dialog #collector-option-2 {
+    display: flex;
     position: absolute;
     left: 0px;
     width: 95%;
@@ -174,6 +220,7 @@
     top: 16.5%;
 }
 .create-task-dialog #collector-option-3 {
+    display: flex;
     position: absolute;
     left: 0px;
     width: 95%;
@@ -182,6 +229,7 @@
     top: 33.5%;
 }
 .create-task-dialog #collector-option-4 {
+    display: flex;
     position: absolute;
     left: 0px;
     width: 95%;
@@ -190,6 +238,7 @@
     top: 50%;
 }
 .create-task-dialog #collector-option-5 {
+    display: flex;
     position: absolute;
     left: 0px;
     width: 95%;
@@ -197,6 +246,68 @@
     background: white;
     top: 66.5%;
 }
+
+.create-task-dialog #vehicle-option-1 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 44%;
+    width: 45%;
+    padding-left: 10px;
+    background: white;
+    border-radius: 15px 15px 0px 0px;
+    border: 1px solid gray;
+}
+.create-task-dialog #vehicle-option-2 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 59%;
+    width: 45%;
+    padding-left: 10px;
+    background: white;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.create-task-dialog #vehicle-option-3 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 74%;
+    width: 45%;
+    padding-left: 10px;
+    z-index: 3;
+    background: white;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.create-task-dialog #vehicle-option-4 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 89%;
+    width: 45%;
+    padding-left: 10px;
+    background: white;
+    z-index: 3;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.create-task-dialog #vehicle-option-5 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 104%;
+    width: 45%;
+    padding-left: 10px;
+    background: white;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 3;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
 #collector-option {
     position: absolute;
     width: 40%;
@@ -207,6 +318,7 @@
     border: 1px solid gray;
     border-radius: 15px;
 }
+
 
 /* Create new MCP ------------------------ */
 
@@ -412,11 +524,154 @@
     font-size: 17px;
 }
 
+.edit-task-dialog #collector-1 {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    width: 95%;
+    padding-left: 10px;
+    background: white;
+    border-radius: 15px 15px 0px 0px;
+}
+.edit-task-dialog #collector-1:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #collector-2:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #collector-3:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #collector-4:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #collector-5:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #vehicle-1:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #vehicle-2:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #vehicle-3:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #vehicle-4:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #vehicle-5:hover {
+    background: rgb(0, 140, 255);
+}
+.edit-task-dialog #collector-2 {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    width: 95%;
+    padding-left: 10px;
+    background: white;
+    top: 16.5%;
+}
+.edit-task-dialog #collector-3 {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    width: 95%;
+    padding-left: 10px;
+    background: white;
+    top: 33.5%;
+}
+.edit-task-dialog #collector-4 {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    width: 95%;
+    padding-left: 10px;
+    background: white;
+    top: 50%;
+}
+.edit-task-dialog #collector-5 {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    width: 95%;
+    padding-left: 10px;
+    background: white;
+    top: 66.5%;
+}
 
+.edit-task-dialog #vehicle-1 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 44%;
+    width: 50%;
+    padding-left: 10px;
+    background: white;
+    border-radius: 15px 15px 0px 0px;
+    border: 1px solid gray;
+}
+.edit-task-dialog #vehicle-2 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 59%;
+    width: 50%;
+    padding-left: 10px;
+    z-index: 3;
+    background: white;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.edit-task-dialog #vehicle-3 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 74%;
+    width: 50%;
+    padding-left: 10px;
+    background: white;
+    z-index: 3;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.edit-task-dialog #vehicle-4 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 89%;
+    width: 50%;
+    padding-left: 10px;
+    background: white;
+    z-index: 3;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.edit-task-dialog #vehicle-5 {
+    display: flex;
+    position: absolute;
+    left: 65%;
+    top: 104%;
+    width: 50%;
+    padding-left: 10px;
+    background: white;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 3;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
 
-
-
-
+#collector-options {
+    position: absolute;
+    width: 40%;
+    top: 63%;
+    height: 80%;
+    left: 11%;
+    z-index: 99;
+    border: 1px solid gray;
+    border-radius: 15px;
+}
 /* Delete Task Dialog */
 
 .delete-task-dialog{
