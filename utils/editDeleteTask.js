@@ -13,7 +13,7 @@ const saveEditTaskBtn = document.getElementById('btn-continue-edit');
 const taskIdInput = document.querySelector('.edit-task-dialog #taskId')
 const dateStartInput = document.getElementById('date-start-input');
 const shiftInput = document.querySelector('.edit-task-dialog #shift');
-const collectorInput = document.querySelector('.edit-task-dialog #collector');
+const collectorInput = document.querySelector('.edit-task-dialog #collector-opt');
 
 
 const rowsOfbody = document.querySelectorAll('table tbody tr');
@@ -41,7 +41,7 @@ for (let i = 0; i < editTaskBtn.length; i++){
                 editTaskEle.style.display = "none";
             }
         }
-        // console.log(getTaskId);
+        console.log(getTaskId);
     })
 }
 
@@ -78,10 +78,9 @@ cancelDelTaskBtn.addEventListener('click', () => {
 confirmDelTaskBtn.addEventListener('click', () => {
     deleteTaskEle.style.display = "none";
     saveNotice.style.display = "block";
-    virtualDelForm.action = '/task/' + getTaskId + '?_method=DELETE';
-    virtualDelForm.submit();
-    // setTimeout(() => {
     saveNoticeText.textContent = "Xóa thành công";
-    // }, 5000);
-    // autoClose();
+    virtualDelForm.action = '/task/' + getTaskId + '?_method=DELETE';
+    setTimeout(() => {
+        virtualDelForm.submit();
+    }, 1500);
 })

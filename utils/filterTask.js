@@ -67,14 +67,14 @@ function changeTable(tempArr){
 }
 
 btnEle.addEventListener('click', () => {
-    var dateValue = convertString(dateEle.value);
+    // var dateValue = convertString(dateEle.value);
     btnCreateTask.style.display = "none";
     flipFlopPart.style.display = "none";
     flipFlopFiltering.style.display = "flex";
     let num = 0, tempArr = [];
     // console.log(rows.filter(taskId.value == "0001"));
     if (taskId.value){
-        if (dateValue == "" && statusEle.value == ""){
+        if (dateEle.value == "" && statusEle.value == ""){
             for (var i = 1; i < rows.length; i++){
                 if (rows[i].getElementsByTagName('th')[0].innerHTML == taskId.value){
                     tempArr.push(rows[i]);
@@ -86,9 +86,9 @@ btnEle.addEventListener('click', () => {
                 }
             }
         }
-        else if (dateValue != "" && statusEle.value == ""){
+        else if (dateEle.value != "" && statusEle.value == ""){
             for (var i = 1; i < rows.length; i++){
-                if (rows[i].getElementsByTagName('th')[0].innerHTML == taskId.value && rows[i].getElementsByTagName('th')[3].innerHTML == dateValue){
+                if (rows[i].getElementsByTagName('th')[0].innerHTML == taskId.value && rows[i].getElementsByTagName('th')[3].innerHTML == dateEle.value){
                     tempArr.push(rows[i]);
                     num++;
                 }
@@ -97,7 +97,7 @@ btnEle.addEventListener('click', () => {
                 }
             }
         }
-        else if (dateValue == "" && statusEle.value != ""){
+        else if (dateEle.value == "" && statusEle.value != ""){
             for (var i = 1; i < rows.length; i++){
                 if (rows[i].getElementsByTagName('th')[0].innerHTML == taskId.value && rows[i].getElementsByTagName('th')[2].innerHTML == statusEle.value){
                     tempArr.push(rows[i]);
@@ -110,7 +110,7 @@ btnEle.addEventListener('click', () => {
         }
         else{
             for (var i = 1; i < rows.length; i++){
-                if (rows[i].getElementsByTagName('th')[0].innerHTML == taskId.value && rows[i].getElementsByTagName('th')[2].innerHTML == statusEle.value && rows[i].getElementsByTagName('th')[3].innerHTML == dateValue){
+                if (rows[i].getElementsByTagName('th')[0].innerHTML == taskId.value && rows[i].getElementsByTagName('th')[2].innerHTML == statusEle.value && rows[i].getElementsByTagName('th')[3].innerHTML == dateEle.value){
                     tempArr.push(rows[i]);
                     num++;
                 }
@@ -121,14 +121,15 @@ btnEle.addEventListener('click', () => {
         }
     }
     else{
-        if (dateValue == "" && statusEle.value == ""){
-            for (var i = 1; i < rows.length; i++){
+        if (dateEle.value == "" && statusEle.value == ""){
+            /* for (var i = 1; i < rows.length; i++){
                 rows[i].style.display = "";
-            }
+            } */
+            location.replace('/task');
         }
-        else if (dateValue != "" && statusEle.value == ""){
+        else if (dateEle.value != "" && statusEle.value == ""){
             for (var i = 1; i < rows.length; i++){
-                if (rows[i].getElementsByTagName('th')[3].innerHTML == dateValue){
+                if (rows[i].getElementsByTagName('th')[3].innerHTML == dateEle.value){
                     tempArr.push(rows[i]);
                     num++;
                 }
@@ -137,7 +138,7 @@ btnEle.addEventListener('click', () => {
                 }
             }
         }
-        else if (dateValue == "" && statusEle.value != ""){
+        else if (dateEle.value == "" && statusEle.value != ""){
             for (var i = 1; i < rows.length; i++){
                 if (rows[i].getElementsByTagName('th')[2].innerHTML == statusEle.value){
                     tempArr.push(rows[i]);
@@ -150,7 +151,7 @@ btnEle.addEventListener('click', () => {
         }
         else{
             for (var i = 1; i < rows.length; i++){
-                if (rows[i].getElementsByTagName('th')[2].innerHTML == statusEle.value && rows[i].getElementsByTagName('th')[3].innerHTML == dateValue){
+                if (rows[i].getElementsByTagName('th')[2].innerHTML == statusEle.value && rows[i].getElementsByTagName('th')[3].innerHTML == dateEle.value){
                     tempArr.push(rows[i]);
                     num++;
                 }

@@ -5,14 +5,14 @@ const tableEle2 = document.querySelectorAll('#second-table');
 // const tableRows2 = document.querySelectorAll('#second-table tbody tr');
 const orderNumber2 = document.getElementById('order-number-2');
 const sumOfRows2 = document.getElementById('number-of-pages-2');
-
+document.querySelectorAll(".header ul li a")[1].classList.add("active");
 // console.log(tableEle2)
 
 
 let curPage2 = 1;
 const amountOfItems2 = tableEle2[0].rows.length;
 const perPage2 = 7;
-const numberOfPages2 = Math.ceil(amountOfItems2 / perPage2);
+const numberOfPages2 = Math.ceil((amountOfItems2 - 1) / perPage2);
 
 sumOfRows2.innerHTML = amountOfItems2 - 1;
 
@@ -74,5 +74,6 @@ preTableEle2.addEventListener('click', () => {
 })
 
 nextTableEle2.addEventListener('click', () => {
+    console.log("Normal next button clicked");
     changePage2(curPage2 + 1);
 })

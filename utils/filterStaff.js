@@ -13,6 +13,7 @@ const sumRows = document.getElementById('number-of-pages-filter-2');
 const flipFlopPart = document.querySelector(".flip-flop-part");
 const flipFlopFiltering = document.querySelector(".flip-flop-filtering");
 
+var firstTime = true;
 
 const disableBtn = (button) => {
     button.classList.add("disabled");
@@ -47,7 +48,7 @@ function setCurrentPage(pageNum, tempArr){
 
     let lowerBoundItem = (pageNum - 1) * itemPerPage; // 11
     let upperBoundItem = pageNum * itemPerPage; //20
-
+    console.log("Number of items: " + numberOfItems);
     for (let i = 0; i < numberOfItems; i++){
         console.log(tempArr[i]);
         tempArr[i].style.display = "none";
@@ -55,19 +56,28 @@ function setCurrentPage(pageNum, tempArr){
             tempArr[i].style.display = "";
         }
     }
-    orderNums.innerHTML = lowerBoundItem + 1;
-    numRows.innerHTML = pageNum === Math.ceil(numberOfItems / itemPerPage) ? tempArr.length : upperBoundItem;
+    if (tempArr.length == 0) { 
+        orderNums.innerHTML = 0;
+        numRows.innerHTML = 0;
+        disableBtn(nextBtn);
+    }
+    else {
+        orderNums.innerHTML = lowerBoundItem + 1;
+        numRows.innerHTML = pageNum === Math.ceil(numberOfItems / itemPerPage) ? tempArr.length : upperBoundItem;
+    }
 }
 function changeTable(tempArr){
     setCurrentPage(1, tempArr);
+    if (firstTime) {
+        previousBtn.addEventListener('click', () => {
+            setCurrentPage(currentPage - 1, tempArr);
+        })
 
-    previousBtn.addEventListener('click', () => {
-        setCurrentPage(currentPage - 1, tempArr);
-    })
-
-    nextBtn.addEventListener('click', () => {
-        setCurrentPage(currentPage + 1, tempArr);
-    })
+        nextBtn.addEventListener('click', () => {
+            setCurrentPage(currentPage + 1, tempArr);
+        })
+        firstTime = false;
+    }
 }
 
 
@@ -76,7 +86,7 @@ btnSearchStaff.addEventListener('click', () => {
     flipFlopFiltering.style.display = "flex";
     let num = 0, tempArr = [];
     const selectValue = positionStaffEle.options[positionStaffEle.selectedIndex].text; // need to put in this function, putting outside always give the first option
-    if (selectValue !== "Chon vi tri" && nameIdStaff.value){
+    if (selectValue !== "Chọn vị trí" && nameIdStaff.value){
         for (let i = 0; i < tableSecRows.length; i++){
             let pos = tableSecRows[i].getElementsByTagName('th')[4].innerHTML;
             let nameStaff = tableSecRows[i].getElementsByTagName('th')[1].innerHTML;
@@ -89,7 +99,7 @@ btnSearchStaff.addEventListener('click', () => {
                 tableSecRows[i].style.display = "none";
             }
         }
-    }else if (selectValue !== "Chon vi tri" && nameIdStaff.value == ""){
+    }else if (selectValue !== "Chọn vị trí" && nameIdStaff.value == ""){
         for (let i = 0; i < tableSecRows.length; i++){
             let pos = tableSecRows[i].getElementsByTagName('th')[4].innerHTML;
             if (pos == selectValue){
@@ -113,6 +123,9 @@ btnSearchStaff.addEventListener('click', () => {
                 tableSecRows[i].style.display = "none";
             }
         }
+    }
+    else {
+        location.replace('/staff');
     }
     numberOfItems = num;
     sumRows.innerHTML = numberOfItems;
