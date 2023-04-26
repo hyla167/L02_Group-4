@@ -84,72 +84,6 @@ function SelectFirst(SelVal) {
       document.getElementById("collector").value = Valuetoselect;
     }
   }
-var janitorOptionClicked = false;
-var vehicleOptionClicked = false;
-
-  function displayOption() {
-    if (!janitorOptionClicked) {
-    document.getElementById('collector-option').style.display = "block";
-    janitorOptionClicked = true;
-    }
-    else {
-      document.getElementById('collector-option').style.display = "none";
-      janitorOptionClicked = false;
-      }
-  }
-
-  function closeCollector1() {
-    document.getElementById('collector').value = "Nguyễn Văn A";
-    document.getElementById('collector-option').style.display = "none";
-  }
-  function closeCollector2() {
-    document.getElementById('collector').value = "Nguyễn Văn B";
-    document.getElementById('collector-option').style.display = "none";
-  }
-  function closeCollector3() {
-    document.getElementById('collector').value = "Nguyễn Văn C";
-    document.getElementById('collector-option').style.display = "none";
-  }
-  function closeCollector4() {
-    document.getElementById('collector').value = "Nguyễn Văn D";
-    document.getElementById('collector-option').style.display = "none";
-  }
-  function closeCollector5() {
-    document.getElementById('collector').value = "Nguyễn Thị E";
-    document.getElementById('collector-option').style.display = "none";
-  }
-
-  function displayOption1() {
-    if (!vehicleOptionClicked) {
-    document.getElementById('vehicle-option').style.display = "block";
-    vehicleOptionClicked = true;
-    }
-    else {
-      document.getElementById('vehicle-option').style.display = "none";
-      vehicleOptionClicked = false;
-    }
-  }
-
-  function closeVehicle1() {
-    document.getElementById('vehicle').value = "64A-12345";
-    document.getElementById('vehicle-option').style.display = "none";
-  }
-  function closeVehicle2() {
-    document.getElementById('vehicle').value = "64A-12346";
-    document.getElementById('vehicle-option').style.display = "none";
-  }
-  function closeVehicle3() {
-    document.getElementById('vehicle').value = "64A-12347";
-    document.getElementById('vehicle-option').style.display = "none";
-  }
-  function closeVehicle4() {
-    document.getElementById('vehicle').value = "64A-12348";
-    document.getElementById('vehicle-option').style.display = "none";
-  }
-  function closeVehicle5() {
-    document.getElementById('vehicle').value = "64A-12349";
-    document.getElementById('vehicle-option').style.display = "none";
-  }
 
   function displayEditOption() {
     if (!janitorOptionClicked) {
@@ -213,4 +147,48 @@ var vehicleOptionClicked = false;
     document.getElementById('vehicle-opt').value = "64A-12349";
     document.getElementById('vehicle-options').style.display = "none";
   }
+
+  let isAppear1 = false;
+   // Toggle select option
+   document.getElementById("collector").onclick = () => {
+    if (isAppear1) {
+      document.getElementById("collector-option").style.display = "none";
+      isAppear1 = false;
+    }
+    else {
+      document.getElementById("collector-option").style.display = "block";
+      isAppear1 = true;
+    }
+   }
+
+   function closeCollector(name) {
+    document.getElementById("collector").value = name;
+    document.getElementById("collector-option").style.display = "none";
+   }
+
+   // Handle selected option
+   function handleclick(event) {
+    event.preventDefault();
+    event.target.focus();
+   }
+
+   let isAppear2 = false;
+   // Toggle select option
+   document.getElementById("vehicle").onclick = () => {
+    if (isAppear2) {
+      document.getElementById("vehicle-option").style.display = "none";
+      isAppear2 = false;
+    }
+    else {
+      document.getElementById("vehicle-option").style.display = "block";
+      isAppear2 = true;
+    }
+   }
+
+   function closeVehicle(name) {
+    document.getElementById("vehicle").value = name;
+    document.getElementById("vehicle-option").style.display = "none";
+   }
+
+   
  

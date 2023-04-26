@@ -22,6 +22,36 @@ const enableBtn = (button) => {
     button.classList.remove("disabled");
     button.removeAttribute("disabled");
 }
+
+const filter = (e) => {
+    let tempArr = [], num = 0;
+    let searchWord = e.target.value;
+    for (let i = 1; i < rows.length; i++){
+        let row = rows[i];
+        let fieldText = "";
+        for (let j = 0; j < rows[i].children.length; j++){
+            fieldText += rows[i].children[j].innerText + ""
+        }
+        if (fieldText.toLowerCase().includes(String(searchWord).toLowerCase())) {
+            // console.log(100);
+            row.style.display = '';
+            tempArr.push(row);
+            num++;
+        }
+        else{
+            row.style.display = 'none';
+        }
+    }
+    // setCurrentPage(1, tempArr)
+    btnCreateTask.style.display = "none";
+    flipFlopPart.style.display = "none";  
+    flipFlopFiltering.style.display = "flex";
+    // console.log(tempArr);
+    numberOfItems = num;
+    sumRows.innerHTML = numberOfItems;
+    changeTable(tempArr);
+}
+
 let currentPage = 1;
 let numberOfItems = 0;
 const itemPerPage = 10;
